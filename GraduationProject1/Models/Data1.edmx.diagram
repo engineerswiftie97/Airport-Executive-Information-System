@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8f7bf890909405ca602ecb728f1202a" Name="Diagram1">
+        <EntityTypeShape EntityType="AirportDBModel.AirlineCompany" Width="1.5" PointX="10.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.AirportInformation" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.AirportTerminal" Width="1.5" PointX="5.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.ApronInformation" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.CarparkAndSecuritiesInfo" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.Carpark" Width="1.5" PointX="5.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.EmployeeInfo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.OfficeInformation" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.Office" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.SecurityInfo" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.TechnicUnit" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.TechnicUnitInfo" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportDBModel.WorkField" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="AirportDBModel.FK_AirportInformations_AirlineCompanies" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportDBModel.FK_ApronInformations_AirportTerminals" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportDBModel.FK_CarparkAndSecuritiesInfo_Carparks" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportDBModel.FK_EmployeeInfos_WorkField" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportDBModel.FK_OfficeInformations_Offices" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportDBModel.FK_TechnicUnitInfos_TechnicUnit" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

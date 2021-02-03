@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AirportDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AirlineCompanies">
+          <Key>
+            <PropertyRef Name="AirlineID" />
+          </Key>
+          <Property Name="AirlineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AirportInformations">
+          <Key>
+            <PropertyRef Name="InformationID" />
+          </Key>
+          <Property Name="InformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InformationDate" Type="datetime" Nullable="false" />
+          <Property Name="QuantityOfPlanesInUsage" Type="int" Nullable="false" />
+          <Property Name="QuantityOfPlanesInMaintain" Type="int" Nullable="false" />
+          <Property Name="QuantityOfPlanesAtApron" Type="int" Nullable="false" />
+          <Property Name="QuantityOfPlanesOnAir" Type="int" Nullable="false" />
+          <Property Name="ScheduledFlights" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Pilot" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AirlineCompanyID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AirportTerminals">
+          <Key>
+            <PropertyRef Name="TerminalID" />
+          </Key>
+          <Property Name="TerminalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TerminalName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApronInformations">
+          <Key>
+            <PropertyRef Name="InformationID" />
+          </Key>
+          <Property Name="InformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Report" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Availability" Type="int" Nullable="false" />
+          <Property Name="TerminalID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarparkAndSecuritiesInfo">
+          <Key>
+            <PropertyRef Name="InfoID" />
+          </Key>
+          <Property Name="InfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Availabilty" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CurrentWorkerInfo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullnessRatio" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TotalCost" Type="money" Nullable="false" />
+          <Property Name="CarparkWorkerList" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EntranceSecurityList" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VipSecurityInfo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CarparkID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carparks">
+          <Key>
+            <PropertyRef Name="CarParkID" />
+          </Key>
+          <Property Name="CarParkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParkCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeInfos">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmployeeLastname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmployeeKeyword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CardNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeePhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeShiftDates" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmployeeAdress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="WorkFieldID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfficeInformations">
+          <Key>
+            <PropertyRef Name="OfficeInformationID" />
+          </Key>
+          <Property Name="OfficeInformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InformationDate" Type="datetime" Nullable="false" />
+          <Property Name="WorkerInfo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Report" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OfficeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Offices">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficeTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SecurityInfos">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CabinNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="InfoDate" Type="datetime" Nullable="false" />
+          <Property Name="Report" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TechnicUnit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TechnicUnitName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechnicUnitInfos">
+          <Key>
+            <PropertyRef Name="UnitInfosID" />
+          </Key>
+          <Property Name="UnitInfosID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircraftCodes" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullnessRatio" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="YearsOfAircraft" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PreviousMaintainAircraft" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TechnicUnitID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FieldLocation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AirportInformations_AirlineCompanies">
+          <End Role="AirlineCompanies" Type="Self.AirlineCompanies" Multiplicity="1" />
+          <End Role="AirportInformations" Type="Self.AirportInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirlineCompanies">
+              <PropertyRef Name="AirlineID" />
+            </Principal>
+            <Dependent Role="AirportInformations">
+              <PropertyRef Name="AirlineCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApronInformations_AirportTerminals">
+          <End Role="AirportTerminals" Type="Self.AirportTerminals" Multiplicity="1" />
+          <End Role="ApronInformations" Type="Self.ApronInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirportTerminals">
+              <PropertyRef Name="TerminalID" />
+            </Principal>
+            <Dependent Role="ApronInformations">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarparkAndSecuritiesInfo_Carparks">
+          <End Role="Carparks" Type="Self.Carparks" Multiplicity="1" />
+          <End Role="CarparkAndSecuritiesInfo" Type="Self.CarparkAndSecuritiesInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carparks">
+              <PropertyRef Name="CarParkID" />
+            </Principal>
+            <Dependent Role="CarparkAndSecuritiesInfo">
+              <PropertyRef Name="CarparkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeInfos_WorkField">
+          <End Role="WorkField" Type="Self.WorkField" Multiplicity="1" />
+          <End Role="EmployeeInfos" Type="Self.EmployeeInfos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkField">
+              <PropertyRef Name="FieldID" />
+            </Principal>
+            <Dependent Role="EmployeeInfos">
+              <PropertyRef Name="WorkFieldID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeInformations_Offices">
+          <End Role="Offices" Type="Self.Offices" Multiplicity="1" />
+          <End Role="OfficeInformations" Type="Self.OfficeInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offices">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="OfficeInformations">
+              <PropertyRef Name="OfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicUnitInfos_TechnicUnit">
+          <End Role="TechnicUnit" Type="Self.TechnicUnit" Multiplicity="1" />
+          <End Role="TechnicUnitInfos" Type="Self.TechnicUnitInfos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicUnit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="TechnicUnitInfos">
+              <PropertyRef Name="TechnicUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AirportDBModelStoreContainer">
+          <EntitySet Name="AirlineCompanies" EntityType="Self.AirlineCompanies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AirportInformations" EntityType="Self.AirportInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AirportTerminals" EntityType="Self.AirportTerminals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApronInformations" EntityType="Self.ApronInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarparkAndSecuritiesInfo" EntityType="Self.CarparkAndSecuritiesInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carparks" EntityType="Self.Carparks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeInfos" EntityType="Self.EmployeeInfos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfficeInformations" EntityType="Self.OfficeInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offices" EntityType="Self.Offices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SecurityInfos" EntityType="Self.SecurityInfos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicUnit" EntityType="Self.TechnicUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicUnitInfos" EntityType="Self.TechnicUnitInfos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkField" EntityType="Self.WorkField" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AirportInformations_AirlineCompanies" Association="Self.FK_AirportInformations_AirlineCompanies">
+            <End Role="AirlineCompanies" EntitySet="AirlineCompanies" />
+            <End Role="AirportInformations" EntitySet="AirportInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApronInformations_AirportTerminals" Association="Self.FK_ApronInformations_AirportTerminals">
+            <End Role="AirportTerminals" EntitySet="AirportTerminals" />
+            <End Role="ApronInformations" EntitySet="ApronInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarparkAndSecuritiesInfo_Carparks" Association="Self.FK_CarparkAndSecuritiesInfo_Carparks">
+            <End Role="Carparks" EntitySet="Carparks" />
+            <End Role="CarparkAndSecuritiesInfo" EntitySet="CarparkAndSecuritiesInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeInfos_WorkField" Association="Self.FK_EmployeeInfos_WorkField">
+            <End Role="WorkField" EntitySet="WorkField" />
+            <End Role="EmployeeInfos" EntitySet="EmployeeInfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeInformations_Offices" Association="Self.FK_OfficeInformations_Offices">
+            <End Role="Offices" EntitySet="Offices" />
+            <End Role="OfficeInformations" EntitySet="OfficeInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicUnitInfos_TechnicUnit" Association="Self.FK_TechnicUnitInfos_TechnicUnit">
+            <End Role="TechnicUnit" EntitySet="TechnicUnit" />
+            <End Role="TechnicUnitInfos" EntitySet="TechnicUnitInfos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AirportDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AirlineCompany">
+          <Key>
+            <PropertyRef Name="AirlineID" />
+          </Key>
+          <Property Name="AirlineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AirportInformations" Relationship="Self.FK_AirportInformations_AirlineCompanies" FromRole="AirlineCompanies" ToRole="AirportInformations" />
+        </EntityType>
+        <EntityType Name="AirportInformation">
+          <Key>
+            <PropertyRef Name="InformationID" />
+          </Key>
+          <Property Name="InformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InformationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="QuantityOfPlanesInUsage" Type="Int32" Nullable="false" />
+          <Property Name="QuantityOfPlanesInMaintain" Type="Int32" Nullable="false" />
+          <Property Name="QuantityOfPlanesAtApron" Type="Int32" Nullable="false" />
+          <Property Name="QuantityOfPlanesOnAir" Type="Int32" Nullable="false" />
+          <Property Name="ScheduledFlights" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pilot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AirlineCompanyID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AirlineCompany" Relationship="Self.FK_AirportInformations_AirlineCompanies" FromRole="AirportInformations" ToRole="AirlineCompanies" />
+        </EntityType>
+        <EntityType Name="AirportTerminal">
+          <Key>
+            <PropertyRef Name="TerminalID" />
+          </Key>
+          <Property Name="TerminalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TerminalName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ApronInformations" Relationship="Self.FK_ApronInformations_AirportTerminals" FromRole="AirportTerminals" ToRole="ApronInformations" />
+        </EntityType>
+        <EntityType Name="ApronInformation">
+          <Key>
+            <PropertyRef Name="InformationID" />
+          </Key>
+          <Property Name="InformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Report" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Availability" Type="Int32" Nullable="false" />
+          <Property Name="TerminalID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AirportTerminal" Relationship="Self.FK_ApronInformations_AirportTerminals" FromRole="ApronInformations" ToRole="AirportTerminals" />
+        </EntityType>
+        <EntityType Name="CarparkAndSecuritiesInfo">
+          <Key>
+            <PropertyRef Name="InfoID" />
+          </Key>
+          <Property Name="InfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Availabilty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CurrentWorkerInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullnessRatio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CarparkWorkerList" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntranceSecurityList" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VipSecurityInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarparkID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carpark" Relationship="Self.FK_CarparkAndSecuritiesInfo_Carparks" FromRole="CarparkAndSecuritiesInfo" ToRole="Carparks" />
+        </EntityType>
+        <EntityType Name="Carpark">
+          <Key>
+            <PropertyRef Name="CarParkID" />
+          </Key>
+          <Property Name="CarParkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParkCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CarparkAndSecuritiesInfoes" Relationship="Self.FK_CarparkAndSecuritiesInfo_Carparks" FromRole="Carparks" ToRole="CarparkAndSecuritiesInfo" />
+        </EntityType>
+        <EntityType Name="EmployeeInfo">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeLastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeKeyword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeePhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeShiftDates" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkFieldID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WorkField" Relationship="Self.FK_EmployeeInfos_WorkField" FromRole="EmployeeInfos" ToRole="WorkField" />
+        </EntityType>
+        <EntityType Name="OfficeInformation">
+          <Key>
+            <PropertyRef Name="OfficeInformationID" />
+          </Key>
+          <Property Name="OfficeInformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InformationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WorkerInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Report" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OfficeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Office" Relationship="Self.FK_OfficeInformations_Offices" FromRole="OfficeInformations" ToRole="Offices" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="OfficeInformations" Relationship="Self.FK_OfficeInformations_Offices" FromRole="Offices" ToRole="OfficeInformations" />
+        </EntityType>
+        <EntityType Name="SecurityInfo">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CabinNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InfoDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Report" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TechnicUnit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TechnicUnitName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TechnicUnitInfos" Relationship="Self.FK_TechnicUnitInfos_TechnicUnit" FromRole="TechnicUnit" ToRole="TechnicUnitInfos" />
+        </EntityType>
+        <EntityType Name="TechnicUnitInfo">
+          <Key>
+            <PropertyRef Name="UnitInfosID" />
+          </Key>
+          <Property Name="UnitInfosID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AircraftCodes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullnessRatio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YearsOfAircraft" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PreviousMaintainAircraft" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TechnicUnitID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TechnicUnit" Relationship="Self.FK_TechnicUnitInfos_TechnicUnit" FromRole="TechnicUnitInfos" ToRole="TechnicUnit" />
+        </EntityType>
+        <EntityType Name="WorkField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FieldLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmployeeInfos" Relationship="Self.FK_EmployeeInfos_WorkField" FromRole="WorkField" ToRole="EmployeeInfos" />
+        </EntityType>
+        <Association Name="FK_AirportInformations_AirlineCompanies">
+          <End Role="AirlineCompanies" Type="Self.AirlineCompany" Multiplicity="1" />
+          <End Role="AirportInformations" Type="Self.AirportInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirlineCompanies">
+              <PropertyRef Name="AirlineID" />
+            </Principal>
+            <Dependent Role="AirportInformations">
+              <PropertyRef Name="AirlineCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApronInformations_AirportTerminals">
+          <End Role="AirportTerminals" Type="Self.AirportTerminal" Multiplicity="1" />
+          <End Role="ApronInformations" Type="Self.ApronInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirportTerminals">
+              <PropertyRef Name="TerminalID" />
+            </Principal>
+            <Dependent Role="ApronInformations">
+              <PropertyRef Name="TerminalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarparkAndSecuritiesInfo_Carparks">
+          <End Role="Carparks" Type="Self.Carpark" Multiplicity="1" />
+          <End Role="CarparkAndSecuritiesInfo" Type="Self.CarparkAndSecuritiesInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carparks">
+              <PropertyRef Name="CarParkID" />
+            </Principal>
+            <Dependent Role="CarparkAndSecuritiesInfo">
+              <PropertyRef Name="CarparkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeInfos_WorkField">
+          <End Role="WorkField" Type="Self.WorkField" Multiplicity="1" />
+          <End Role="EmployeeInfos" Type="Self.EmployeeInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkField">
+              <PropertyRef Name="FieldID" />
+            </Principal>
+            <Dependent Role="EmployeeInfos">
+              <PropertyRef Name="WorkFieldID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeInformations_Offices">
+          <End Role="Offices" Type="Self.Office" Multiplicity="1" />
+          <End Role="OfficeInformations" Type="Self.OfficeInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offices">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="OfficeInformations">
+              <PropertyRef Name="OfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicUnitInfos_TechnicUnit">
+          <End Role="TechnicUnit" Type="Self.TechnicUnit" Multiplicity="1" />
+          <End Role="TechnicUnitInfos" Type="Self.TechnicUnitInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicUnit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="TechnicUnitInfos">
+              <PropertyRef Name="TechnicUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AirportDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AirlineCompanies" EntityType="Self.AirlineCompany" />
+          <EntitySet Name="AirportInformations" EntityType="Self.AirportInformation" />
+          <EntitySet Name="AirportTerminals" EntityType="Self.AirportTerminal" />
+          <EntitySet Name="ApronInformations" EntityType="Self.ApronInformation" />
+          <EntitySet Name="CarparkAndSecuritiesInfoes" EntityType="Self.CarparkAndSecuritiesInfo" />
+          <EntitySet Name="Carparks" EntityType="Self.Carpark" />
+          <EntitySet Name="EmployeeInfos" EntityType="Self.EmployeeInfo" />
+          <EntitySet Name="OfficeInformations" EntityType="Self.OfficeInformation" />
+          <EntitySet Name="Offices" EntityType="Self.Office" />
+          <EntitySet Name="SecurityInfos" EntityType="Self.SecurityInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TechnicUnits" EntityType="Self.TechnicUnit" />
+          <EntitySet Name="TechnicUnitInfos" EntityType="Self.TechnicUnitInfo" />
+          <EntitySet Name="WorkFields" EntityType="Self.WorkField" />
+          <AssociationSet Name="FK_AirportInformations_AirlineCompanies" Association="Self.FK_AirportInformations_AirlineCompanies">
+            <End Role="AirlineCompanies" EntitySet="AirlineCompanies" />
+            <End Role="AirportInformations" EntitySet="AirportInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApronInformations_AirportTerminals" Association="Self.FK_ApronInformations_AirportTerminals">
+            <End Role="AirportTerminals" EntitySet="AirportTerminals" />
+            <End Role="ApronInformations" EntitySet="ApronInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarparkAndSecuritiesInfo_Carparks" Association="Self.FK_CarparkAndSecuritiesInfo_Carparks">
+            <End Role="Carparks" EntitySet="Carparks" />
+            <End Role="CarparkAndSecuritiesInfo" EntitySet="CarparkAndSecuritiesInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeInfos_WorkField" Association="Self.FK_EmployeeInfos_WorkField">
+            <End Role="WorkField" EntitySet="WorkFields" />
+            <End Role="EmployeeInfos" EntitySet="EmployeeInfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeInformations_Offices" Association="Self.FK_OfficeInformations_Offices">
+            <End Role="Offices" EntitySet="Offices" />
+            <End Role="OfficeInformations" EntitySet="OfficeInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicUnitInfos_TechnicUnit" Association="Self.FK_TechnicUnitInfos_TechnicUnit">
+            <End Role="TechnicUnit" EntitySet="TechnicUnits" />
+            <End Role="TechnicUnitInfos" EntitySet="TechnicUnitInfos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AirportDBModelStoreContainer" CdmEntityContainer="AirportDBEntities">
+          <EntitySetMapping Name="AirlineCompanies">
+            <EntityTypeMapping TypeName="AirportDBModel.AirlineCompany">
+              <MappingFragment StoreEntitySet="AirlineCompanies">
+                <ScalarProperty Name="AirlineID" ColumnName="AirlineID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AirportInformations">
+            <EntityTypeMapping TypeName="AirportDBModel.AirportInformation">
+              <MappingFragment StoreEntitySet="AirportInformations">
+                <ScalarProperty Name="InformationID" ColumnName="InformationID" />
+                <ScalarProperty Name="InformationDate" ColumnName="InformationDate" />
+                <ScalarProperty Name="QuantityOfPlanesInUsage" ColumnName="QuantityOfPlanesInUsage" />
+                <ScalarProperty Name="QuantityOfPlanesInMaintain" ColumnName="QuantityOfPlanesInMaintain" />
+                <ScalarProperty Name="QuantityOfPlanesAtApron" ColumnName="QuantityOfPlanesAtApron" />
+                <ScalarProperty Name="QuantityOfPlanesOnAir" ColumnName="QuantityOfPlanesOnAir" />
+                <ScalarProperty Name="ScheduledFlights" ColumnName="ScheduledFlights" />
+                <ScalarProperty Name="Pilot" ColumnName="Pilot" />
+                <ScalarProperty Name="AirlineCompanyID" ColumnName="AirlineCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AirportTerminals">
+            <EntityTypeMapping TypeName="AirportDBModel.AirportTerminal">
+              <MappingFragment StoreEntitySet="AirportTerminals">
+                <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+                <ScalarProperty Name="TerminalName" ColumnName="TerminalName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApronInformations">
+            <EntityTypeMapping TypeName="AirportDBModel.ApronInformation">
+              <MappingFragment StoreEntitySet="ApronInformations">
+                <ScalarProperty Name="InformationID" ColumnName="InformationID" />
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="TerminalID" ColumnName="TerminalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarparkAndSecuritiesInfoes">
+            <EntityTypeMapping TypeName="AirportDBModel.CarparkAndSecuritiesInfo">
+              <MappingFragment StoreEntitySet="CarparkAndSecuritiesInfo">
+                <ScalarProperty Name="InfoID" ColumnName="InfoID" />
+                <ScalarProperty Name="Availabilty" ColumnName="Availabilty" />
+                <ScalarProperty Name="CurrentWorkerInfo" ColumnName="CurrentWorkerInfo" />
+                <ScalarProperty Name="FullnessRatio" ColumnName="FullnessRatio" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="CarparkWorkerList" ColumnName="CarparkWorkerList" />
+                <ScalarProperty Name="EntranceSecurityList" ColumnName="EntranceSecurityList" />
+                <ScalarProperty Name="VipSecurityInfo" ColumnName="VipSecurityInfo" />
+                <ScalarProperty Name="CarparkID" ColumnName="CarparkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carparks">
+            <EntityTypeMapping TypeName="AirportDBModel.Carpark">
+              <MappingFragment StoreEntitySet="Carparks">
+                <ScalarProperty Name="CarParkID" ColumnName="CarParkID" />
+                <ScalarProperty Name="ParkCode" ColumnName="ParkCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeInfos">
+            <EntityTypeMapping TypeName="AirportDBModel.EmployeeInfo">
+              <MappingFragment StoreEntitySet="EmployeeInfos">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeLastname" ColumnName="EmployeeLastname" />
+                <ScalarProperty Name="EmployeeKeyword" ColumnName="EmployeeKeyword" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+                <ScalarProperty Name="EmployeePhoneNumber" ColumnName="EmployeePhoneNumber" />
+                <ScalarProperty Name="EmployeeShiftDates" ColumnName="EmployeeShiftDates" />
+                <ScalarProperty Name="EmployeeAdress" ColumnName="EmployeeAdress" />
+                <ScalarProperty Name="WorkFieldID" ColumnName="WorkFieldID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficeInformations">
+            <EntityTypeMapping TypeName="AirportDBModel.OfficeInformation">
+              <MappingFragment StoreEntitySet="OfficeInformations">
+                <ScalarProperty Name="OfficeInformationID" ColumnName="OfficeInformationID" />
+                <ScalarProperty Name="InformationDate" ColumnName="InformationDate" />
+                <ScalarProperty Name="WorkerInfo" ColumnName="WorkerInfo" />
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offices">
+            <EntityTypeMapping TypeName="AirportDBModel.Office">
+              <MappingFragment StoreEntitySet="Offices">
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="OfficeTitle" ColumnName="OfficeTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecurityInfos">
+            <EntityTypeMapping TypeName="AirportDBModel.SecurityInfo">
+              <MappingFragment StoreEntitySet="SecurityInfos">
+                <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+                <ScalarProperty Name="CabinNumber" ColumnName="CabinNumber" />
+                <ScalarProperty Name="InfoDate" ColumnName="InfoDate" />
+                <ScalarProperty Name="Report" ColumnName="Report" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AirportDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicUnits">
+            <EntityTypeMapping TypeName="AirportDBModel.TechnicUnit">
+              <MappingFragment StoreEntitySet="TechnicUnit">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="TechnicUnitName" ColumnName="TechnicUnitName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicUnitInfos">
+            <EntityTypeMapping TypeName="AirportDBModel.TechnicUnitInfo">
+              <MappingFragment StoreEntitySet="TechnicUnitInfos">
+                <ScalarProperty Name="UnitInfosID" ColumnName="UnitInfosID" />
+                <ScalarProperty Name="AircraftCodes" ColumnName="AircraftCodes" />
+                <ScalarProperty Name="FullnessRatio" ColumnName="FullnessRatio" />
+                <ScalarProperty Name="YearsOfAircraft" ColumnName="YearsOfAircraft" />
+                <ScalarProperty Name="PreviousMaintainAircraft" ColumnName="PreviousMaintainAircraft" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TechnicUnitID" ColumnName="TechnicUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFields">
+            <EntityTypeMapping TypeName="AirportDBModel.WorkField">
+              <MappingFragment StoreEntitySet="WorkField">
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="FieldLocation" ColumnName="FieldLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
